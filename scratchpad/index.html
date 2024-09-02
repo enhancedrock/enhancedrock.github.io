@@ -55,7 +55,7 @@
                     // get the current font size
                     const currentFontSize = window.getComputedStyle(textarea).fontSize;
                     // convert the size to int
-                    const newFontSize = parseFloat(currentFontSize) - 1; // +1
+                    const newFontSize = parseFloat(currentFontSize) - 1; // -1
                     // set the new font size
                     textarea.style.fontSize = newFontSize + 'px';
                 });
