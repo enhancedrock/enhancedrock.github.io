@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <title>Scratchpad</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        textarea {
+            width: 100%;
+            height: 100%;
+            border: none;
+            font-family: "Lexend", sans-serif;
+            font-optical-sizing: auto;
+            font-size: 18px;
+            font-weight: <weight>;
+            font-style: normal;
+            padding: 10px;
+            box-sizing: border-box;
+            resize: none; /* disable resizing */
+        }
+    </style>
+</head>
+<body>
+    <textarea placeholder="Start typing... (Press 'Control'+'.' to increase font size, and 'Control'+',' to decrease font size, default is 18px.)"></textarea>
+    <script>
+        document.addEventListener('keydown', function(event) {
+            if (event.ctrlKey && event.key === '.') {
+                console.log('Font size up.');
+                const textareas = document.querySelectorAll('textarea');
+                // loop through each textarea and increase its font size
+                textareas.forEach(textarea => {
+                    // get the current font size
+                    const currentFontSize = window.getComputedStyle(textarea).fontSize;
+                    // convert the size to int
+                    const newFontSize = parseFloat(currentFontSize) + 1; // +1
+                    // set the new font size
+                    textarea.style.fontSize = newFontSize + 'px';
+                });
+            }
+            else if (event.ctrlKey && event.key === ',') {
+                console.log('Font size down.');
+                const textareas = document.querySelectorAll('textarea');
+                // loop through each textarea and increase its font size
+                textareas.forEach(textarea => {
+                    // get the current font size
+                    const currentFontSize = window.getComputedStyle(textarea).fontSize;
+                    // convert the size to int
+                    const newFontSize = parseFloat(currentFontSize) - 1; // +1
+                    // set the new font size
+                    textarea.style.fontSize = newFontSize + 'px';
+                });
+            }
+        });
+
+    </script>
+</body>
+</html>
